@@ -27,8 +27,8 @@ class Category(models.Model):
     class Image(models.Model):
         image = models.ImageField(null=False, blank = False)
         description = models.TextField(max_length=1000)
-        category = models.ForeignKey('Category',on_delete=models.SET_NULL)
-        location = models.ForeignKey('Location',on_delete=models.SET_NULL)
+        category = models.ForeignKey('Category',on_delete=models.SET_NULL, null=True)
+        location = models.ForeignKey('Location',on_delete=models.SET_NULL, null=True)
         date = models.DateTimeField(auto_now_add=True)
 
         def __str__(self):
