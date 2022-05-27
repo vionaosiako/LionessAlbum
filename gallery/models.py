@@ -25,55 +25,55 @@ class Category(models.Model):
     
     # Images
     class Image(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField(max_length=1000)
-    category = models.ForeignKey('Category',on_delete=models.SET-NULL)
-    location = models.ForeignKey('Location',on_delete=models.SET-NULL)
-    date = models.DateTimeField(auto_now_add=True)
+        image = models.ImageField(null=False, blank = False)
+        description = models.TextField(max_length=1000)
+        category = models.ForeignKey('Category',on_delete=models.SET_NULL)
+        location = models.ForeignKey('Location',on_delete=models.SET_NULL)
+        date = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.name
+        def __str__(self):
+            return self.name
 
-    @classmethod
-    def get_all_pictures(cls):
-        pictures = Pictures.objects.all()
-        return pictures
+        @classmethod
+        def get_all_pictures(cls):
+            pictures = Pictures.objects.all()
+            return pictures
 
-    @classmethod
-    def get_pic_by_id(cls,id):
-        pic = cls.objects.get(id=id)
-        return pic
+        @classmethod
+        def get_pic_by_id(cls,id):
+            pic = cls.objects.get(id=id)
+            return pic
 
-    @classmethod
-    def search_by_category(cls,search_term):
-        galleria = cls.objects.filter(category__name__icontains=search_term)
-        return galleria
+        @classmethod
+        def search_by_category(cls,search_term):
+            galleria = cls.objects.filter(category__name__icontains=search_term)
+            return galleria
 
-    @classmethod
-    def filter_by_location(cls, location):
-        pictures = Pictures.objects.filter(location__name=location)
-        return pictures
+        @classmethod
+        def filter_by_location(cls, location):
+            pictures = Pictures.objects.filter(location__name=location)
+            return pictures
 
-    @classmethod
-    def display_all_images(cls):
-        return cls.objects.all()
+        @classmethod
+        def display_all_images(cls):
+            return cls.objects.all()
 
-    def save_picture(self):
-        self.save()
+        def save_picture(self):
+            self.save()
 
-    def update_picture(self,name,description,category):
-        self.name = name,
-        self.description = description,
-        self.category = category
-        self.save()
+        def update_picture(self,name,description,category):
+            self.name = name,
+            self.description = description,
+            self.category = category
+            self.save()
 
-    def get_picture_by_id(cls,id):
-        pic = Pictures.objects.get(id=id)
-        return pic
+        def get_picture_by_id(cls,id):
+            pic = Pictures.objects.get(id=id)
+            return pic
 
 
-    class Meta:
-        ordering = ['-date']
+        class Meta:
+            ordering = ['-date']
         
 # Location
 class Location(models.Model):
