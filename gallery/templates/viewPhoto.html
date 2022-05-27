@@ -1,1 +1,17 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
 <h1>View Photo</h1>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <img class="card-img-top thumbnail" src="https://avatars.githubusercontent.com/u/98155614?s=400&u=622efc7014995ff694fa92eb55bc4ae05915008e&v=4" alt="Card image cap" style="width: 100%;">
+            <div class="card-body">
+                <p><b>Category: </b>Family</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quibusdam repellendus ducimus? Cumque perferendis quasi ut atque quis nesciunt tempora illum illo, nisi officia maiores? Maxime itaque exercitationem accusamus quas.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
