@@ -26,6 +26,7 @@ class Category(models.Model):
     # Pictures
 class Pictures(models.Model):
     image = models.ImageField(null=False, blank = False)
+    name = models.CharField(max_length=100,null=True,blank=True)
     description = models.TextField(max_length=1000)
     category = models.ForeignKey('Category',on_delete=models.SET_NULL, null=True)
     location = models.ForeignKey('Location',on_delete=models.SET_NULL, null=True)
@@ -77,7 +78,7 @@ class Pictures(models.Model):
         
 # Location
 class Location(models.Model):
-    loc = models.CharField(max_length=50)
+    location = models.CharField(max_length=50)
 
     def __str__(self):
         return self.loc
