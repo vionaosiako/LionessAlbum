@@ -81,7 +81,7 @@ class Location(models.Model):
     location = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.loc
+        return self.location
         
     def save_location(self):
         self.save()
@@ -91,7 +91,7 @@ class Location(models.Model):
 
     @classmethod
     def update_location(cls,id,name):
-        cls.objects.filter(id = id).update(loc = name)
+        cls.objects.filter(id = id).update(location = name)
 
     @classmethod
     def display_all_locations(cls):

@@ -7,28 +7,30 @@
 <div class="row">
     <div class="col-md-3">
         <div class="card">
-            <div class="card-header">Category</div>
+            <div class="card-header">Location</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">All Photos</li>
-                <li class="list-group-item">My family</li>
-                <li class="list-group-item">My Pets</li>
-                <li class="list-group-item">Best Books</li>
+                {% for location in locations %}
+                    <li class="list-group-item">{{location.location}}</li>
+                {% endfor %}
             </ul>
         </div>
     </div>
     <div class="col-md-9">
         <div class="row">
+            {% for photo in photos %}
             <div class="col-md-4 mb-2">
-                <a href="{% url 'viewPhoto' 1 %}">
+                <a href="{% url 'viewPhoto' photo.id%}">
                     <div class="card">
-                        <img class="card-img-top thumbnail" src="https://avatars.githubusercontent.com/u/98155614?s=400&u=622efc7014995ff694fa92eb55bc4ae05915008e&v=4" alt="Card image cap" style="width: 100%;">
+                        <img class="card-img-top thumbnail" src="{{ photo.image}}" alt="Card image cap" style="width: 100%;">
                         <div class="card-body">
-                            <p><b>Category: </b>Family</p>
+                            <p><b>Category: </b>{{photo.category}}</p>
                         </div>
                     </div>
                 </a>
 
             </div>
+            {% endfor %}
         </div>
 
     </div>
