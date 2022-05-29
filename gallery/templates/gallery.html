@@ -2,14 +2,12 @@
 
 {% block content %}
 {{block.super}}
-<h1>Gallery</h1>
 
 <div class="row">
     <div class="col-md-3">
         <div class="card">
-            <div class="card-header">Location</div>
+            <div class="card-header"><h3>Location</h3></div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">All Photos</li>
                 {% for location in locations %}
                     <li class="list-group-item">{{location.location}}</li>
                 {% endfor %}
@@ -22,7 +20,7 @@
             <div class="col-md-4 mb-2">
                 <a href="{% url 'viewPhoto' photo.id%}">
                     <div class="card">
-                        <img class="card-img-top thumbnail" src="{{ photo.image}}" alt="Card image cap" style="width: 100%;">
+                        <img class="card-img-top thumbnail" src="{{ photo.image}}" alt="Card image cap" style="width: 100%; height: 40vh;">
                         <div class="card-body">
                             <p><b>Category: </b>{{photo.category}}</p>
                         </div>
