@@ -2,38 +2,35 @@
 
 {% block content %}
 {{block.super}}
-<div class="row">
-        {% if categories%}
-        <h2>Found {{ categories|length }} of searched term {{message}}</h2>
-        {% else %}
-        <h2> Found 0 category for the search term {{message}}</h2>
-        {% endif %}
 
-    </div>
+<div class="row">
+    {% if pictures %}
+        <h2>Found {{ pictures |length }} of searched term '{{message}}'</h2>
+    {% else %}
+        <h2> Found 0 pictures for the search term '{{message}}</h2>
+    {% endif %}
+
+</div>
 
     <div class="row">
 
-        {% if categories %}
-    {% for category in categories %}
-    <div class="col-sm-6 col-md-3">
-        <h1>{{category.name}}</h1>
-    </div>
-    {% endfor %}
-    {% endif %}
-
-        {% for photo in photos %}
-        <div class="col-md-4 mb-2">
-            <a href="{% url 'viewPhoto' photo.id%}">
-                <div class="card">
-                    <img class="card-img-top thumbnail" src="{{ photo.image}}" alt="Card image cap" style="width: 100%;">
-                    <div class="card-body">
-                        <p><b>Category: </b>{{photo.category}}</p>
-                    </div>
-                </div>
-            </a>
-
-        </div>
+        {% if pictures %}
+        {% for pictures in pictures %}
+            <div class="col-sm-6">
+                <img height="300" width="400" src = '{{pictures.image.url}}'>
+            </div>
+            <div class="col-sm-6">
+                <h2><b>Name: </b> {{pictures.name}}</h2>
+                <p>{{pictures.description}}</p>
+                <p><b>Category: </b>{{pictures.category}}</p>
+                <p><b>Location: </b>{{pictures.location}}</p>
+                <p><b>Posted On: </b> {{pictures.date}}</p>
+        
+            </div>
         {% endfor %}
+        {% endif %}
+
+        
     </div>
 
 {% endblock %}

@@ -23,11 +23,6 @@ class Category(models.Model):
     def display_all_categories(cls):
         return cls.objects.all()
     
-    @classmethod
-    def search_by_name(cls,search_term):
-        pic = cls.objects.filter(name__icontains=search_term)
-        return pic
-    
     # Pictures
 class Pictures(models.Model):
     image = models.ImageField(null=False, blank = False)
@@ -52,8 +47,8 @@ class Pictures(models.Model):
 
     @classmethod
     def search_by_category(cls,search_term):
-        galleria = cls.objects.filter(category__name__icontains=search_term)
-        return galleria
+        image = cls.objects.filter(category__name__icontains=search_term)
+        return image
 
     @classmethod
     def filter_by_location(cls, location):

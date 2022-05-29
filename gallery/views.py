@@ -13,16 +13,15 @@ def gallery(request):
 
 def search_results(request):
 
-    if 'category' in request.GET and request.GET["category"]:
-        search_term = request.GET.get("category")
-        searched_categories = Category.search_by_name(search_term)
+    if 'pictures' in request.GET and request.GET["pictures"]:
+        search_term = request.GET.get("pictures")
+        searched_pictures = Pictures.search_by_category(search_term)
         message = f"{search_term}"
 
-        return render(request, 'search.html',{"message":message,"categories": searched_categories})
-
+        return render(request, 'search.html',{"message":message,"pictures": searched_pictures})
     else:
-        message = "You haven't searched for any term"
-        return render(request, 'search.html',{"message":message})
+        message = "You haven't searched for any category"
+        return render(request, 'all_art/search.html',{"message":message})
 
 def viewPhoto(request,pk):
     photo = Pictures.objects.get(id=pk)
