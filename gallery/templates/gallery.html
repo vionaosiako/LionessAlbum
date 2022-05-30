@@ -20,7 +20,7 @@
             <div class="col-md-4 mb-2">
                 <a href="{% url 'viewPhoto' photo.id%}">
                     <div class="card">
-                        <img class="card-img-top thumbnail" src="{{ photo.image}}" alt="Card image cap" style="width: 100%; height: 40vh;">
+                        <img class="card-img-top thumbnail" src="{{ photo.image.url}}" alt="Card image cap" style="width: 100%; height: 40vh;">
                         <div class="card-body">
                             <p><b>Category: </b>{{photo.category}}</p>
                         </div>
