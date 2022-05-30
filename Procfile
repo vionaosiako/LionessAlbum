@@ -1,0 +1,1 @@
+web: gunicorn lionessalbum.wsgi --log-file -
