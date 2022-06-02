@@ -14,6 +14,10 @@ import django_heroku
 import dj_database_url
 from decouple import config,Csv
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False)
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
     
     #apps
     'gallery',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +141,13 @@ TIME_ZONE = 'Africa/Nairobi'
 USE_I18N = True
 
 USE_TZ = True
+
+# adding config
+cloudinary.config( 
+    cloud_name = "dhvcmzuzw", 
+    api_key = "529236448688577", 
+    api_secret = "lPkFO-rhoydBuXGgC4VMBlYiDP4" 
+)
 
 
 # Static files (CSS, JavaScript, Images)

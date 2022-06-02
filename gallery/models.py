@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 import datetime as dt
 
 
@@ -25,7 +26,8 @@ class Category(models.Model):
     
     # Pictures
 class Pictures(models.Model):
-    image = models.ImageField(null=False, blank = False)
+    image = CloudinaryField('image')
+    # image = models.ImageField(null=False, blank = False)
     name = models.CharField(max_length=100,null=True,blank=True)
     description = models.TextField(max_length=1000)
     category = models.ForeignKey('Category',on_delete=models.SET_NULL, null=True)
