@@ -26,7 +26,7 @@ This project allows users to view different images on the main page that interes
 * Then run server
 
 ## Live Link
-Or you can access the web application directly via this [LIVE LINK]().
+Or you can access the web application directly via this: https://lionessalbum.herokuapp.com/.
 
 ## Dependencies
 asgiref==3.5.2
